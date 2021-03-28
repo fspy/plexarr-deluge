@@ -15,23 +15,23 @@ Files are downloaded via torrent, categorized with [Deluge](https://deluge-torre
 
 | Variable         | Default              |
 | :--------------- | :------------------- |
-| `CONFIG_PATH`    | `/home/fspy/.config` |
-| `DATA_PATH`      | `/mnt/data`          |
-| `TIME_ZONE`      | `Etc/UTC`            |
-| `DELUGE_PORT`    | `53135`              |
-| `DELUGEWEB_PORT` | `8112`               |
-| `SONARR_PORT`    | `8989`               |
-| `RADARR_PORT`    | `7878`               |
-| `BAZARR_PORT`    | `6767`               |
-| `PLEX_PORT`      | `32400`              |
+| **CONFIG_PATH**    | `/home/fspy/.config` |
+| **DATA_PATH**      | `/mnt/data`          |
+| **TIME_ZONE**      | `Etc/UTC`            |
+| **DELUGE_PORT**    | `53135`              |
+| **DELUGEWEB_PORT** | `8112`               |
+| **SONARR_PORT**    | `8989`               |
+| **RADARR_PORT**    | `7878`               |
+| **BAZARR_PORT**    | `6767`               |
+| **PLEX_PORT**      | `32400`              |
 
 The following are only required once:
 
 | Variable        | Example             | Description                                           |
 | :-------------- | :------------------ | :---------------------------------------------------- |
-| `PLEX_LOGIN`    | `email@example.com` | Used by Autoscan to generate tokens                   |
-| `PLEX_PASSWORD` | `hunter2`           | Used by Autoscan to generate tokens                   |
-| `PLEX_CLAIM`    | `claim-foobar`      | Get it at https://plex.tv/claim/ to claim your server |
+| **PLEX_LOGIN**    | `email@example.com` | Used by Autoscan to generate tokens                   |
+| **PLEX_PASSWORD** | `hunter2`           | Used by Autoscan to generate tokens                   |
+| **PLEX_CLAIM**    | `claim-foobar`      | Get it at https://plex.tv/claim/ to claim your server |
 
 ### Directory structure for `DATA_PATH`
 
@@ -53,11 +53,11 @@ data
 
 - **Downloads**
 
-  Set `Download to`: `/downloads/.uncategorized`
+  Set *Download to*: `/downloads/.uncategorized`
 
 - **Network**
 
-  Set `Incoming Port`: `DELUGE_PORT`
+  Set *Incoming Port*: `DELUGE_PORT`
 
 - **Plugins**
 
