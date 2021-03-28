@@ -6,15 +6,15 @@ Files are downloaded via torrent, categorized with [Deluge](https://deluge-torre
 
 **Docker images used**
   - [linuxserver/deluge](https://hub.docker.com/r/linuxserver/deluge/)
-  - [hotio/sonarr:phantom](https://hub.docker.com/r/hotio/sonarr/)
-  - [hotio/radarr:aphrodite](https://hub.docker.com/r/hotio/radarr/)
-  - [hotio/bazarr:unstable-ffsync](https://hub.docker.com/r/hotio/bazarr/)
-  - [hotio/plex:autoscan](https://hub.docker.com/r/hotio/plex/)
+  - [hotio/sonarr:release](https://hotio.dev/containers/sonarr/)
+  - [hotio/radarr:release](https://hotio.dev/containers/radarr/)
+  - [hotio/bazarr:release](https://hotio.dev/containers/bazarr/)
+  - [hotio/plex:release](https://hotio.dev/containers/plex/)
 
 ### Environment Variables (or `.env` file)
 
-| Variable         | Default              |
-| :--------------- | :------------------- |
+| Variable           | Default              |
+| :----------------- | :------------------- |
 | **CONFIG_PATH**    | `/home/fspy/.config` |
 | **DATA_PATH**      | `/mnt/data`          |
 | **TIME_ZONE**      | `Etc/UTC`            |
@@ -23,15 +23,12 @@ Files are downloaded via torrent, categorized with [Deluge](https://deluge-torre
 | **SONARR_PORT**    | `8989`               |
 | **RADARR_PORT**    | `7878`               |
 | **BAZARR_PORT**    | `6767`               |
-| **PLEX_PORT**      | `32400`              |
 
 The following are only required once:
 
-| Variable        | Example             | Description                                           |
-| :-------------- | :------------------ | :---------------------------------------------------- |
-| **PLEX_LOGIN**    | `email@example.com` | Used by Autoscan to generate tokens                   |
-| **PLEX_PASSWORD** | `hunter2`           | Used by Autoscan to generate tokens                   |
-| **PLEX_CLAIM**    | `claim-foobar`      | Get it at https://plex.tv/claim/ to claim your server |
+| Variable        | Example        | Description                                           |
+| :-------------- | :------------- | :---------------------------------------------------- |
+| **PLEX_CLAIM**  | `claim-foobar` | Get it at https://plex.tv/claim/ to claim your server |
 
 ### Directory structure for `DATA_PATH`
 
