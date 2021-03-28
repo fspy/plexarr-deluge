@@ -22,15 +22,14 @@ services:
       - net.ipv4.tcp_wmem=4096 65536 16777216
     volumes:
       - ${CONFIG_PATH}/deluge:/config
-      - ${DATA_PATH}/.empty:/downloads
-      - ${DATA_PATH}/torrents:/data/torrents
+      - ${DATA_PATH}/torrents:/downloads
 
   # TV shows
   sonarr:
     container_name: sonarr
     environment:
       - TZ=${TIME_ZONE}
-    image: hotio/sonarr:phantom
+    image: hotio/sonarr:release
     ports:
       - "${SONARR_PORT}:8989"
     volumes:
@@ -42,7 +41,7 @@ services:
     container_name: radarr
     environment:
       - TZ=${TIME_ZONE}
-    image: hotio/radarr:aphrodite
+    image: hotio/radarr:release
     ports:
       - "${RADARR_PORT}:7878"
     volumes:
@@ -54,7 +53,7 @@ services:
     container_name: bazarr
     environment:
       - TZ=${TIME_ZONE}
-    image: hotio/bazarr:unstable-ffsubsync
+    image: hotio/bazarr:release
     ports:
       - "${BAZARR_PORT}:6767"
     volumes:
@@ -67,21 +66,10 @@ services:
     environment:
       - TZ=${TIME_ZONE}
       - PLEX_CLAIM=${PLEX_CLAIM}
-      - PLEX_LOGIN=${PLEX_LOGIN}
-      - PLEX_PASSWORD=${PLEX_PASSWORD}
-    image: hotio/plex:autoscan
+    image: hotio/plex:release
     ports:
-      - "${PLEX_PORT}:${PLEX_PORT}"
-      - "1900:1900/udp"
-      - "3005:3005"
-      - "5353:5353/udp"
-      - "8324:8324"
-      - "32410:32410/udp"
-      - "32412:32412/udp"
-      - "32413:32413/udp"
-      - "32414:32414/udp"
-      - "32469:32469"
+      - "32400:32400"
     volumes:
       - ${CONFIG_PATH}/plex:/config
-      - ${DATA_PATH}/.empty:/transcode
+      - ${DATA_PATH}/media/.transcode:/transcode
       - ${DATA_PATH}/media:/data/media
