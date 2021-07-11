@@ -35,15 +35,24 @@ The following are only required once:
 ```
 data
 ├─ media
-│  ├─ Movies
-│  ├─ Music
-│  └─ TV
+│  ├─ .transcode
+│  ├─ movies
+│  ├─ music
+│  └─ tv
 └─ torrents
    ├─ .uncategorized
+   ├─ .watch
+   │  ├─ apps
+   │  ├─ games
+   │  ├─ movies
+   │  ├─ music
+   │  └─ tv
    ├─ movies
    ├─ music
    └─ tv
 ```
+
+`mkdir -p $DATA_PATH/{config,media,torrents/{apps,games,movies,music,tv,.uncategorized,.watch/{apps,games,movies,music,tv}}}`
 
 
 ### Deluge configuration

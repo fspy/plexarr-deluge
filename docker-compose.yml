@@ -3,6 +3,7 @@ services:
   # Torrents
   deluge:
     container_name: deluge
+    restart: always
     environment:
       - PGID=1000
       - PUID=1000
@@ -11,22 +12,16 @@ services:
     ports:
       - "${DELUGEWEB_PORT}:8112"
       - "${DELUGE_PORT}:${DELUGE_PORT}"
-    sysctls:
-      # - net.core.default_qdisc=fq_codel
-      # - net.ipv4.tcp_congestion_control=illinois
-      # - net.core.rmem_default=87380
-      # - net.core.rmem_max=16777216
-      - net.ipv4.tcp_rmem=4096 87380 16777216
-      # - net.core.wmem_default=65536
-      # - net.core.wmem_max=16777216
-      - net.ipv4.tcp_wmem=4096 65536 16777216
+      - "58846:58846"
     volumes:
       - ${CONFIG_PATH}/deluge:/config
       - ${DATA_PATH}/torrents:/downloads
+      - /mnt/e/.fastdl:/downloads/.fastdl
 
   # TV shows
   sonarr:
     container_name: sonarr
+    restart: always
     environment:
       - TZ=${TIME_ZONE}
     image: hotio/sonarr:release
@@ -39,6 +34,7 @@ services:
   # Movies
   radarr:
     container_name: radarr
+    restart: always
     environment:
       - TZ=${TIME_ZONE}
     image: hotio/radarr:release
@@ -51,6 +47,7 @@ services:
   # Subtitles
   bazarr:
     container_name: bazarr
+    restart: always
     environment:
       - TZ=${TIME_ZONE}
     image: hotio/bazarr:release
@@ -63,12 +60,23 @@ services:
   # Plex Media Server
   plex:
     container_name: plex
+    restart: always
     environment:
+      - PLEX_UID=1000
+      - PLEX_GID=1000
       - TZ=${TIME_ZONE}
       - PLEX_CLAIM=${PLEX_CLAIM}
-    image: hotio/plex:release
+    image: plexinc/pms-docker
     ports:
-      - "32400:32400"
+      - "32400:32400/tcp"
+      - "3005:3005/tcp"
+      - "8324:8324/tcp"
+      - "32469:32469/tcp"
+      - "1900:1900/udp"
+      - "32410:32410/udp"
+      - "32412:32412/udp"
+      - "32413:32413/udp"
+      - "32414:32414/udp"
     volumes:
       - ${CONFIG_PATH}/plex:/config
       - ${DATA_PATH}/media/.transcode:/transcode
